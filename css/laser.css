@@ -1,0 +1,1850 @@
+/* ==========================================================================
+   LASER HAIR REMOVAL LANDING PAGE — DEDICATED STYLES
+   Dr. Panghal Homoeopathy & Aesthetic Clinic
+   Extends: styles.css
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   HERO: CLINICAL SHOWCASE CARD (Editorial & Replaceable)
+   -------------------------------------------------------------------------- */
+.laser-hero-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  flex-direction: column;
+}
+
+.laser-hero-media-wrap {
+  background: linear-gradient(145deg, #F4EFEB, #E8E0D5);
+  border-bottom: 1px solid var(--border-subtle);
+  position: relative;
+  min-height: 320px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1.75rem;
+}
+
+.laser-hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(20, 22, 23, 0.85);
+  color: #FFFFFF;
+  padding: 0.4rem 0.9rem;
+  border-radius: var(--radius-full);
+  font-size: 0.8rem;
+  font-weight: 600;
+  width: fit-content;
+  backdrop-filter: blur(8px);
+}
+
+/* Hero Rotating Image Slideshow Frame */
+.laser-hero-slideshow {
+  position: relative;
+  width: 100%;
+  height: 290px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: #141617;
+  border: 1px solid rgba(214, 179, 126, 0.35);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.1);
+  isolation: isolate;
+}
+
+.laser-hero-slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.8s ease-in-out, visibility 0.8s ease-in-out;
+  pointer-events: none;
+  display: block;
+}
+
+.laser-hero-slide.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.laser-hero-slide.slide-room {
+  object-position: center center;
+}
+
+.laser-hero-slide.slide-abdomen {
+  object-position: 62% center;
+}
+
+.laser-hero-slide.slide-legs {
+  object-position: 60% center;
+}
+
+.laser-hero-slide.slide-underarms {
+  object-position: center center;
+}
+
+.laser-hero-slide.slide-chest {
+  object-position: center center;
+}
+
+.laser-hero-address {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  text-align: center;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+
+@media (max-width: 640px) {
+  .laser-hero-media-wrap {
+    padding: 1.25rem 1rem;
+    gap: 0.75rem;
+  }
+
+  .laser-hero-slideshow {
+    height: 230px;
+    border-radius: var(--radius-md);
+  }
+}
+
+.laser-hero-card-meta {
+  padding: 1.25rem 1.75rem;
+  background: var(--bg-surface);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.laser-meta-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.laser-meta-label {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+}
+
+.laser-meta-val {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+/* --------------------------------------------------------------------------
+   PROBLEM SECTION (The Frustrations of Hair Removal)
+   -------------------------------------------------------------------------- */
+.problem-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+
+@media (min-width: 640px) {
+  .problem-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .problem-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.problem-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  transition: transform var(--transition-fast), border-color var(--transition-fast);
+}
+
+.problem-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.problem-icon-wrap {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-md);
+  background: #F8F4EE;
+  border: 1px solid var(--border-subtle);
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.problem-content h4 {
+  font-size: 1.05rem;
+  color: var(--text-primary);
+  margin-bottom: 0.35rem;
+}
+
+.problem-content p {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+
+/* --------------------------------------------------------------------------
+   TREATMENT EXPLANATION HIGHLIGHT BOX
+   -------------------------------------------------------------------------- */
+.explanation-box {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-xl);
+  padding: clamp(2rem, 5vw, 3.5rem);
+  box-shadow: var(--shadow-sm);
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  align-items: center;
+}
+
+@media (min-width: 960px) {
+  .explanation-box {
+    grid-template-columns: 1.2fr 0.8fr;
+  }
+}
+
+.explanation-keypoints {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  margin: 1.5rem 0;
+}
+
+.explanation-keypoint-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+}
+
+.explanation-keypoint-item svg {
+  color: var(--trust-green);
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+
+.explanation-visual-side {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  text-align: center;
+}
+
+/* --------------------------------------------------------------------------
+   TREATMENT AREAS GRID & PRICING
+   -------------------------------------------------------------------------- */
+.areas-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .areas-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 992px) {
+  .areas-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.area-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-lg);
+  padding: 1.85rem 1.4rem 1.6rem;
+  text-align: center;
+  transition: all var(--transition-fast);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: var(--shadow-sm);
+}
+
+.area-card:hover {
+  border-color: var(--accent);
+  background: #FCFBF9;
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
+}
+
+.area-icon-circle {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: var(--accent-light);
+  color: var(--accent);
+  margin: 0 auto 0.85rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.area-name {
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.35rem;
+}
+
+.area-hint {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  line-height: 1.45;
+  margin-bottom: 1.25rem;
+  min-height: 2.4em;
+}
+
+/* Pricing Blocks */
+.area-pricing-block {
+  width: 100%;
+  margin-top: auto;
+  margin-bottom: 1.25rem;
+  padding: 0.95rem 0.6rem;
+  background: var(--bg-primary);
+  border-radius: var(--radius-sm);
+  border: 1px dashed var(--accent-border);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.area-price-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 0.65rem;
+  flex-wrap: wrap;
+}
+
+.area-regular-price del {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  text-decoration: line-through;
+  font-weight: 500;
+}
+
+.area-discount-price {
+  font-family: var(--font-serif);
+  font-size: 1.55rem;
+  font-weight: 700;
+  color: var(--accent-hover);
+  line-height: 1;
+}
+
+.area-per-session {
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+.area-savings-badge {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--trust-green);
+  background: var(--trust-green-bg);
+  border: 1px solid rgba(35, 110, 80, 0.2);
+  padding: 0.2rem 0.65rem;
+  border-radius: var(--radius-full);
+}
+
+.area-pricing-block.consultation-pricing {
+  border-style: solid;
+  border-color: var(--border-subtle);
+  background: var(--bg-secondary);
+  padding: 1.1rem 0.6rem;
+}
+
+.area-consultation-price {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.area-pricing-note {
+  font-size: 0.74rem;
+  color: var(--text-muted);
+  line-height: 1.35;
+  max-width: 220px;
+}
+
+.area-action-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 0.55rem 1rem;
+  font-size: 0.84rem;
+  font-weight: 600;
+  border-radius: var(--radius-full);
+  background: transparent;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  text-decoration: none;
+  transition: all var(--transition-fast);
+}
+
+.area-card:hover .area-action-btn {
+  background: var(--accent);
+  color: #FFFFFF;
+}
+
+/* Pricing Confirmation & Disclaimer Note */
+.pricing-confirmation-block {
+  margin-top: 2.75rem;
+  text-align: center;
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.pricing-confirmation-text {
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.35rem;
+  line-height: 1.4;
+}
+
+.pricing-disclaimer-text {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+/* Pricing CTA Card */
+.pricing-cta-card {
+  margin-top: 2.25rem;
+  background: #FFFFFF;
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-lg);
+  padding: 2.25rem 1.75rem;
+  box-shadow: var(--shadow-sm);
+  text-align: center;
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.pricing-cta-heading {
+  font-family: var(--font-serif);
+  font-size: clamp(1.25rem, 2.5vw, 1.55rem);
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.pricing-cta-subtext {
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin: 0 0 0.5rem 0;
+}
+
+/* --------------------------------------------------------------------------
+   WHAT TO EXPECT (Patient Journey: Before, During, After)
+   -------------------------------------------------------------------------- */
+.expect-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.75rem;
+}
+
+@media (min-width: 768px) {
+  .expect-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.expect-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-lg);
+  padding: 2.2rem 1.8rem;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.expect-tag {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--accent);
+  margin-bottom: 0.6rem;
+}
+
+.expect-title {
+  font-size: 1.4rem;
+  margin-bottom: 0.85rem;
+  color: var(--text-primary);
+}
+
+.expect-desc {
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+  margin-bottom: 1.25rem;
+}
+
+.expect-points {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: auto;
+  padding-top: 1.25rem;
+  border-top: 1px dashed var(--border-subtle);
+}
+
+.expect-point-item {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.expect-point-item::before {
+  content: "•";
+  color: var(--accent);
+  font-size: 1.1rem;
+}
+
+/* --------------------------------------------------------------------------
+   MEET YOUR DOCTORS SECTION
+   -------------------------------------------------------------------------- */
+.doctors-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .doctors-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.doctor-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  transition: transform var(--transition-smooth), box-shadow var(--transition-smooth);
+}
+
+.doctor-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--accent-border);
+}
+
+.doctor-photo-frame {
+  aspect-ratio: 4 / 3.8;
+  background: linear-gradient(135deg, #F3EEE7 0%, #E8DFD3 100%);
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid var(--border-subtle);
+  padding: 0;
+  display: block;
+}
+
+.doctor-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform var(--transition-smooth);
+}
+
+.doctor-card:hover .doctor-photo {
+  transform: scale(1.02);
+}
+
+.doctor-photo.dr-vineet-photo {
+  object-position: center 65%;
+}
+
+.doctor-photo.dr-ritu-photo {
+  object-position: center 40%;
+}
+
+.doctor-monogram {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: var(--bg-surface);
+  border: 2px solid var(--accent);
+  color: var(--accent);
+  font-family: var(--font-serif);
+  font-size: 1.6rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.85rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.doctor-placeholder-note {
+  font-size: 0.76rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.doctor-details {
+  padding: 2rem 1.8rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.doctor-name {
+  font-size: 1.65rem;
+  margin-bottom: 0.25rem;
+}
+
+.doctor-qualification {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.75rem;
+}
+
+.doctor-experience-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  padding: 0.35rem 0.8rem;
+  border-radius: var(--radius-full);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 1.15rem;
+  width: fit-content;
+}
+
+.doctor-specialty {
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 1.25rem;
+}
+
+.doctor-credentials-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  margin-top: auto;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-subtle);
+  font-size: 0.84rem;
+  color: var(--text-secondary);
+}
+
+.doctor-credentials-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.doctor-credentials-list svg {
+  color: var(--trust-green);
+  flex-shrink: 0;
+}
+
+/* --------------------------------------------------------------------------
+   REVIEWS & SOCIAL PROOF (Authentic Google Business Showcase)
+   -------------------------------------------------------------------------- */
+.google-social-proof-banner {
+  background: #FFFFFF;
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-xl);
+  padding: 1.75rem 2.25rem;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.75rem;
+  margin-bottom: 3.5rem;
+}
+
+.google-proof-metrics {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2rem;
+}
+
+.proof-metric-block {
+  display: flex;
+  flex-direction: column;
+}
+
+.proof-metric-val {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 3.5vw, 2.6rem);
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.proof-metric-val .stars-gold {
+  color: var(--star-gold);
+  font-size: clamp(1.2rem, 2vw, 1.5rem);
+}
+
+.proof-metric-lbl {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-top: 0.35rem;
+}
+
+.proof-metric-divider {
+  width: 1px;
+  height: 48px;
+  background-color: var(--border-card);
+}
+
+.proof-profile-badge {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.google-g-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  padding: 0.45rem 0.95rem;
+  border-radius: var(--radius-full);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.verified-subtext {
+  font-size: 0.76rem;
+  color: var(--text-muted);
+}
+
+.google-proof-action {
+  display: flex;
+  align-items: center;
+}
+
+/* --------------------------------------------------------------------------
+   PATIENT EXPERIENCES / TESTIMONIALS SECTION
+   -------------------------------------------------------------------------- */
+.testimonial-section-header {
+  max-width: 760px;
+  margin: 0 auto 2.75rem;
+  text-align: center;
+}
+
+.patient-testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.75rem;
+}
+
+.patient-testimonial-card {
+  background: #FFFFFF;
+  border: 1px solid #E8DDD0;
+  border-radius: var(--radius-lg);
+  padding: 2.25rem 1.85rem;
+  box-shadow: 0 4px 20px rgba(28, 25, 23, 0.04);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.28s ease;
+}
+
+.patient-testimonial-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(184, 146, 88, 0.1);
+  border-color: var(--accent-border);
+}
+
+.testimonial-stars-row {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  color: var(--star-gold);
+  font-size: 0.95rem;
+  letter-spacing: 2px;
+  margin-bottom: 1.25rem;
+}
+
+.testimonial-quote {
+  font-family: var(--font-serif);
+  font-size: 1.18rem;
+  font-style: italic;
+  line-height: 1.6;
+  color: var(--text-primary);
+  margin: 0 0 1.75rem 0;
+  flex-grow: 1;
+}
+
+.testimonial-author-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.testimonial-author-name {
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.testimonial-treatment-tag {
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* --------------------------------------------------------------------------
+   CLOSING CONSULTATION CTA BLOCK
+   -------------------------------------------------------------------------- */
+.testimonial-closing-cta {
+  margin-top: 3.25rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 2.25rem 1.75rem;
+  background: #FFFFFF;
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 4px 20px rgba(28, 25, 23, 0.04);
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.testimonial-closing-cta-text {
+  font-family: var(--font-serif);
+  font-size: clamp(1.2rem, 2.4vw, 1.45rem);
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.35;
+  margin: 0;
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 960px) {
+  .patient-testimonials-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .google-social-proof-banner {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 1.5rem;
+    gap: 1.5rem;
+  }
+
+  .google-proof-metrics {
+    justify-content: space-between;
+    gap: 1.25rem;
+  }
+
+  .google-proof-action .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 680px) {
+  .patient-testimonials-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .proof-metric-divider {
+    display: none;
+  }
+
+  .proof-profile-badge {
+    width: 100%;
+  }
+
+  .testimonial-closing-cta {
+    margin-top: 2.25rem;
+    padding: 1.75rem 1.25rem;
+  }
+
+  .testimonial-closing-cta .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   LOCATION / VISIT US SECTION (Google Maps-Style Visual Background)
+   -------------------------------------------------------------------------- */
+.location-map-frame {
+  position: relative;
+  min-height: 420px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #E8ECEE;
+  background-image: url('../Assets/bhiwani-clinic-map.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-left: 1px solid var(--border-subtle);
+  overflow: hidden;
+}
+
+.location-map-frame::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(248, 245, 240, 0.12);
+  pointer-events: none;
+}
+
+.location-map-frame .map-placeholder-content {
+  text-align: center;
+  padding: 1.75rem 1.5rem;
+  max-width: 320px;
+  width: 88%;
+  margin: 1.5rem auto;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(214, 179, 126, 0.4);
+  box-shadow: 0 12px 36px rgba(20, 22, 23, 0.14);
+  position: relative;
+  z-index: 2;
+  transition: transform var(--transition-smooth), box-shadow var(--transition-smooth);
+}
+
+.location-map-frame .map-placeholder-content:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 42px rgba(20, 22, 23, 0.18);
+}
+
+.location-map-frame .map-pin-circle {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--bg-dark);
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 0.85rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+}
+
+@media (max-width: 959px) {
+  .location-map-frame {
+    border-left: none;
+    border-top: 1px solid var(--border-subtle);
+    min-height: 380px;
+  }
+}
+
+/* Desktop Navigation Text Helpers */
+.mobile-nav-cta {
+  display: none;
+}
+.desktop-nav-cta {
+  display: inline;
+}
+
+/* ==========================================================================
+   MOBILE-ONLY RESPONSIVE REFINEMENT (Scoped strictly to max-width: 767px)
+   Does NOT alter desktop styles, layouts, typography, or visuals in any way.
+   ========================================================================== */
+@media (max-width: 767px) {
+  :root {
+    --container-padding: 1.15rem;
+    --section-spacing: 3rem;
+  }
+
+  html, body {
+    overflow-x: hidden !important;
+    max-width: 100vw !important;
+    position: relative;
+  }
+
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  .container {
+    padding-left: var(--container-padding) !important;
+    padding-right: var(--container-padding) !important;
+    box-sizing: border-box !important;
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+
+  /* ------------------------------------------------------------------------
+     1. MOBILE HEADER & NAVIGATION
+     ------------------------------------------------------------------------ */
+  .desktop-nav-cta {
+    display: none !important;
+  }
+
+  .mobile-nav-cta {
+    display: inline !important;
+  }
+
+  .site-header {
+    height: auto !important;
+    min-height: 56px !important;
+    padding: 0.4rem 0 !important;
+    width: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  .site-header .container {
+    flex: 1 1 100% !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .site-header nav {
+    display: none !important;
+  }
+
+  .header-container {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 0.35rem !important;
+    width: 100% !important;
+    padding-left: var(--container-padding) !important;
+    padding-right: var(--container-padding) !important;
+    box-sizing: border-box !important;
+  }
+
+  .brand-logo {
+    display: flex !important;
+    flex-direction: column !important;
+    min-width: 0 !important;
+    max-width: calc(100% - 130px) !important;
+    flex-shrink: 1 !important;
+  }
+
+  .brand-title {
+    font-size: clamp(0.95rem, 3.8vw, 1.12rem) !important;
+    white-space: nowrap !important;
+    line-height: 1.15 !important;
+  }
+
+  .brand-subtitle {
+    font-size: clamp(0.5rem, 1.8vw, 0.58rem) !important;
+    letter-spacing: 0.02em !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    line-height: 1.2 !important;
+  }
+
+  .header-actions {
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.35rem !important;
+    flex-shrink: 0 !important;
+  }
+
+  .header-actions .header-call-btn {
+    display: none !important;
+  }
+
+  .header-actions .btn-sm {
+    padding: 0.38rem 0.65rem !important;
+    font-size: 0.78rem !important;
+    min-height: 36px !important;
+    border-radius: var(--radius-full) !important;
+    white-space: nowrap !important;
+    line-height: 1 !important;
+  }
+
+  .mobile-menu-toggle {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 4px !important;
+    width: 36px !important;
+    height: 36px !important;
+    padding: 4px !important;
+    flex-shrink: 0 !important;
+    background: transparent !important;
+    border: none !important;
+    cursor: pointer !important;
+  }
+
+  .mobile-menu-toggle span {
+    display: block !important;
+    width: 20px !important;
+    height: 2px !important;
+    background-color: var(--text-primary) !important;
+    border-radius: 2px !important;
+  }
+
+  .announcement-bar {
+    font-size: 0.72rem !important;
+    padding: 0.4rem 0.5rem !important;
+    line-height: 1.35 !important;
+    overflow: hidden !important;
+    white-space: normal !important;
+  }
+
+  .announcement-bar .container {
+    white-space: normal !important;
+    text-align: center !important;
+    padding: 0 0.5rem !important;
+    max-width: 100% !important;
+  }
+
+  .announcement-bar a {
+    display: inline-block !important;
+    margin-left: 0.35rem !important;
+    white-space: nowrap !important;
+  }
+
+  /* ------------------------------------------------------------------------
+     2. MOBILE HERO HIERARCHY & RESTRUCTURING
+     Order:
+       1. Location/service pill (hero-location-badge)
+       2. Personalized Aesthetic Care label (section-eyebrow)
+       3. Main headline (hero-title)
+       4. Short supporting paragraph (hero-description)
+       5. Hero treatment/clinic image slideshow (hero-visual-container)
+       6. Small trust indicators (hero-trust-row)
+       7. Primary CTA (hero-cta-group)
+     ------------------------------------------------------------------------ */
+  .hero-section {
+    padding-top: 1.5rem !important;
+    padding-bottom: 2.25rem !important;
+  }
+
+  .hero-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0 !important;
+  }
+
+  .hero-content {
+    display: contents !important;
+  }
+
+  .hero-location-badge {
+    order: 1 !important;
+    align-self: flex-start !important;
+    margin-bottom: 0.65rem !important;
+    letter-spacing: 0.02em !important;
+    font-size: clamp(0.72rem, 3vw, 0.78rem) !important;
+    padding: 0.32rem 0.7rem !important;
+    max-width: 100% !important;
+    white-space: normal !important;
+    box-sizing: border-box !important;
+    line-height: 1.35 !important;
+  }
+
+  .hero-content > .section-eyebrow {
+    order: 2 !important;
+    align-self: flex-start !important;
+    margin-bottom: 0.75rem !important;
+    letter-spacing: 0.06em !important;
+    font-size: clamp(0.66rem, 2.6vw, 0.74rem) !important;
+    padding: 0.28rem 0.65rem !important;
+    max-width: 100% !important;
+    white-space: normal !important;
+    box-sizing: border-box !important;
+    line-height: 1.35 !important;
+  }
+
+  .hero-title {
+    order: 3 !important;
+    font-size: clamp(1.48rem, 6.2vw, 1.85rem) !important;
+    line-height: 1.2 !important;
+    letter-spacing: -0.015em !important;
+    margin-bottom: 0.85rem !important;
+    word-break: normal !important;
+    overflow-wrap: break-word !important;
+    max-width: 100% !important;
+  }
+
+  .hero-title br {
+    display: none !important; /* Allow natural fluid wrapping on mobile */
+  }
+
+  .hero-description {
+    order: 4 !important;
+    font-size: 0.95rem !important;
+    line-height: 1.6 !important;
+    margin-bottom: 1.25rem !important;
+    color: var(--text-secondary) !important;
+    max-width: 100% !important;
+  }
+
+  .hero-visual-container {
+    order: 5 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 0 1.25rem 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  .laser-hero-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    border-radius: var(--radius-lg) !important;
+    box-shadow: 0 8px 24px rgba(20, 22, 23, 0.08) !important;
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+  }
+
+  .laser-hero-media-wrap {
+    padding: 0.85rem !important;
+    gap: 0.65rem !important;
+  }
+
+  .laser-hero-badge {
+    font-size: 0.72rem !important;
+    padding: 0.3rem 0.65rem !important;
+    max-width: 100% !important;
+    white-space: normal !important;
+    text-align: center !important;
+  }
+
+  .laser-hero-slideshow {
+    height: 230px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    border-radius: var(--radius-md) !important;
+    overflow: hidden !important;
+  }
+
+  .laser-hero-slide {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+  }
+
+  .laser-hero-address {
+    font-size: 0.74rem !important;
+    line-height: 1.3 !important;
+    padding: 0 0.25rem !important;
+  }
+
+  .laser-hero-card-meta {
+    padding: 0.75rem 0.65rem !important;
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 0.35rem !important;
+    text-align: center !important;
+    box-sizing: border-box !important;
+  }
+
+  .laser-meta-item {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+
+  .laser-meta-label {
+    font-size: 0.6rem !important;
+    letter-spacing: 0.04em !important;
+  }
+
+  .laser-meta-val {
+    font-size: 0.76rem !important;
+    white-space: normal !important;
+    word-break: break-word !important;
+    line-height: 1.25 !important;
+  }
+
+  /* Compact Trust Indicators (2x2 Grid) */
+  .hero-trust-row {
+    order: 6 !important;
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 0.85rem 1rem !important;
+    padding: 1.15rem 0 !important;
+    margin: 0.25rem 0 1.25rem 0 !important;
+    border-top: 1px solid var(--border-subtle) !important;
+    border-bottom: 1px solid var(--border-subtle) !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .hero-trust-item {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0.15rem !important;
+  }
+
+  .hero-trust-item .val {
+    font-size: 1.18rem !important;
+    line-height: 1.1 !important;
+  }
+
+  .hero-trust-item .val .stars {
+    font-size: 0.85rem !important;
+  }
+
+  .hero-trust-item .lbl {
+    font-size: 0.74rem !important;
+    line-height: 1.3 !important;
+  }
+
+  /* Mobile Primary CTA */
+  .hero-cta-group {
+    order: 7 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0.75rem !important;
+    width: 100% !important;
+    margin-bottom: 0.5rem !important;
+  }
+
+  .hero-cta-group .btn {
+    width: 100% !important;
+    min-height: 48px !important;
+    padding: 0.85rem 1.25rem !important;
+    font-size: 0.95rem !important;
+    white-space: normal !important;
+    text-align: center !important;
+    box-sizing: border-box !important;
+    justify-content: center !important;
+  }
+
+  /* ------------------------------------------------------------------------
+     3. MOBILE TYPOGRAPHY & GENERAL OVERFLOW FIXES
+     ------------------------------------------------------------------------ */
+  h1 {
+    font-size: clamp(1.48rem, 6.2vw, 1.85rem) !important;
+    line-height: 1.2 !important;
+    word-break: normal !important;
+    overflow-wrap: break-word !important;
+  }
+
+  h2, .section-title {
+    font-size: clamp(1.35rem, 5.5vw, 1.75rem) !important;
+    line-height: 1.25 !important;
+    overflow-wrap: break-word !important;
+    word-break: normal !important;
+  }
+
+  h3 {
+    font-size: clamp(1.15rem, 4.8vw, 1.38rem) !important;
+    line-height: 1.3 !important;
+    overflow-wrap: break-word !important;
+    word-break: normal !important;
+  }
+
+  h4 {
+    font-size: 1.05rem !important;
+    overflow-wrap: break-word !important;
+  }
+
+  .section-subtitle {
+    font-size: 0.95rem !important;
+    line-height: 1.6 !important;
+    max-width: 100% !important;
+  }
+
+  .section-header {
+    margin: 0 auto 2rem !important;
+    max-width: 100% !important;
+  }
+
+  .section-eyebrow {
+    letter-spacing: 0.06em !important;
+    font-size: clamp(0.66rem, 2.6vw, 0.74rem) !important;
+    padding: 0.28rem 0.65rem !important;
+    white-space: normal !important;
+    line-height: 1.35 !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    text-align: center !important;
+    word-break: normal !important;
+    overflow-wrap: break-word !important;
+  }
+
+  .btn {
+    white-space: normal !important;
+    box-sizing: border-box !important;
+    max-width: 100% !important;
+  }
+
+  /* ------------------------------------------------------------------------
+     4. SECTION RHYTHM & CARD GRIDS COLLAPSING
+     ------------------------------------------------------------------------ */
+  /* Trust Strip */
+  .trust-strip {
+    padding: 1.75rem 0 !important;
+  }
+
+  .trust-strip-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
+
+  .trust-card {
+    padding: 1.25rem !important;
+    box-sizing: border-box !important;
+    max-width: 100% !important;
+  }
+
+  /* Problem Section */
+  .problem-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
+
+  .problem-card {
+    padding: 1.35rem 1.15rem !important;
+    box-sizing: border-box !important;
+    max-width: 100% !important;
+  }
+
+  /* Laser Overview */
+  .overview-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+  }
+
+  .overview-points {
+    gap: 0.85rem !important;
+  }
+
+  .overview-point {
+    gap: 0.85rem !important;
+  }
+
+  /* Treatment Areas */
+  .areas-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.15rem !important;
+  }
+
+  .area-card {
+    padding: 1.35rem 1.15rem !important;
+    box-sizing: border-box !important;
+    max-width: 100% !important;
+  }
+
+  /* Why Dr. Panghal */
+  .why-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
+
+  .why-card {
+    padding: 1.35rem 1.15rem !important;
+    box-sizing: border-box !important;
+    max-width: 100% !important;
+  }
+
+  /* How It Works (Steps) */
+  .steps-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.25rem !important;
+  }
+
+  .step-card {
+    padding: 1.35rem 1.15rem !important;
+    box-sizing: border-box !important;
+    max-width: 100% !important;
+  }
+
+  /* What to Expect */
+  .expectations-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.25rem !important;
+  }
+
+  /* Doctors Section */
+  .doctors-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+  }
+
+  .doctor-profile-card {
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .doctor-card-photo-frame {
+    height: 280px !important;
+    width: 100% !important;
+  }
+
+  .doctor-card-body {
+    padding: 1.35rem 1.15rem !important;
+  }
+
+  /* Patient Reviews & Social Proof */
+  .patient-testimonials-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.15rem !important;
+  }
+
+  .testimonial-card {
+    padding: 1.35rem 1.15rem !important;
+    box-sizing: border-box !important;
+    max-width: 100% !important;
+  }
+
+  .google-social-proof-banner {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    padding: 1.35rem 1.15rem !important;
+    gap: 1.25rem !important;
+  }
+
+  .google-proof-metrics {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 0.85rem !important;
+  }
+
+  .proof-metric-divider {
+    display: none !important;
+  }
+
+  .proof-profile-badge {
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .google-proof-action .btn {
+    width: 100% !important;
+    justify-content: center !important;
+    min-height: 48px !important;
+  }
+
+  .testimonial-closing-cta {
+    margin-top: 1.75rem !important;
+    padding: 1.5rem 1.15rem !important;
+  }
+
+  .testimonial-closing-cta .btn {
+    width: 100% !important;
+    justify-content: center !important;
+    min-height: 48px !important;
+  }
+
+  /* ------------------------------------------------------------------------
+     5. MOBILE LOCATION / VISIT US SECTION
+     ------------------------------------------------------------------------ */
+  .location-box {
+    border-radius: var(--radius-lg) !important;
+    overflow: hidden !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .location-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+  }
+
+  .location-info {
+    padding: 1.5rem 1.15rem !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
+  }
+
+  .location-landmarks {
+    gap: 0.65rem !important;
+    margin-bottom: 1.5rem !important;
+  }
+
+  .location-actions {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0.65rem !important;
+    width: 100% !important;
+  }
+
+  .location-actions .btn {
+    width: 100% !important;
+    justify-content: center !important;
+    min-height: 48px !important;
+    box-sizing: border-box !important;
+  }
+
+  .location-map-frame {
+    min-height: 300px !important;
+    width: 100% !important;
+    border-top: 1px solid var(--border-subtle) !important;
+    border-left: none !important;
+    box-sizing: border-box !important;
+  }
+
+  .location-map-frame .map-placeholder-content {
+    width: 88% !important;
+    max-width: 280px !important;
+    padding: 1.25rem 1rem !important;
+    margin: 1.25rem auto !important;
+  }
+
+  /* ------------------------------------------------------------------------
+     6. MOBILE CONSULTATION FORM & MODAL
+     ------------------------------------------------------------------------ */
+  .booking-card {
+    padding: 1.5rem 1.15rem !important;
+    border-radius: var(--radius-lg) !important;
+    box-sizing: border-box !important;
+    max-width: 100% !important;
+  }
+
+  .booking-form-header {
+    margin-bottom: 1.5rem !important;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+    width: 100% !important;
+  }
+
+  .form-group {
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .form-input, .form-select {
+    min-height: 48px !important;
+    font-size: 0.95rem !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .booking-card button[type="submit"] {
+    width: 100% !important;
+    min-height: 52px !important;
+    font-size: 1rem !important;
+    justify-content: center !important;
+  }
+
+  .form-privacy-note {
+    font-size: 0.8rem !important;
+    margin-top: 1rem !important;
+  }
+
+  /* Modal */
+  .modal-overlay {
+    padding: 0.75rem !important;
+  }
+
+  .modal-container {
+    padding: 1.5rem 1.15rem !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .modal-container .form-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .modal-container button[type="submit"] {
+    width: 100% !important;
+    min-height: 48px !important;
+    justify-content: center !important;
+  }
+
+  /* ------------------------------------------------------------------------
+     7. FAQ & FINAL CTA
+     ------------------------------------------------------------------------ */
+  .faq-button {
+    padding: 1.15rem 1rem !important;
+    font-size: 0.95rem !important;
+  }
+
+  .faq-answer {
+    padding: 0 1rem !important;
+  }
+
+  .faq-answer p {
+    font-size: 0.9rem !important;
+    line-height: 1.6 !important;
+  }
+
+  .final-cta-section {
+    padding: 3rem 0 !important;
+    text-align: center !important;
+  }
+
+  .final-cta-section .btn-group {
+    flex-direction: column !important;
+    width: 100% !important;
+    gap: 0.75rem !important;
+  }
+
+  .final-cta-section .btn-group .btn {
+    width: 100% !important;
+    min-height: 48px !important;
+    justify-content: center !important;
+  }
+
+  /* ------------------------------------------------------------------------
+     8. SITE FOOTER & BOTTOM STICKY BAR
+     ------------------------------------------------------------------------ */
+  .site-footer {
+    padding: 3rem 0 2rem !important;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+    margin-bottom: 2rem !important;
+  }
+
+  .footer-bottom {
+    flex-direction: column !important;
+    text-align: center !important;
+    gap: 0.75rem !important;
+  }
+
+  .mobile-sticky-bar {
+    padding: 0.5rem 0.75rem !important;
+    gap: 0.5rem !important;
+    box-sizing: border-box !important;
+  }
+
+  .mobile-sticky-bar .btn-mobile-book {
+    min-height: 44px !important;
+    font-size: 0.84rem !important;
+    padding: 0.65rem 0.65rem !important;
+  }
+
+  .mobile-sticky-bar .btn-mobile-call {
+    min-height: 44px !important;
+    font-size: 0.84rem !important;
+    padding: 0.65rem 0.5rem !important;
+  }
+}
+
+/* Extra-narrow devices: 320px - 360px */
+@media (max-width: 360px) {
+  :root {
+    --container-padding: 0.85rem;
+  }
+
+  .header-actions .btn-sm {
+    padding: 0.38rem 0.5rem !important;
+    font-size: 0.72rem !important;
+  }
+
+  .brand-title {
+    font-size: 1.05rem !important;
+  }
+
+  .brand-subtitle {
+    font-size: 0.55rem !important;
+  }
+
+  .hero-trust-row {
+    gap: 0.65rem 0.75rem !important;
+  }
+
+  .hero-trust-item .val {
+    font-size: 1.05rem !important;
+  }
+
+  .hero-trust-item .lbl {
+    font-size: 0.7rem !important;
+  }
+
+  .laser-hero-slideshow {
+    height: 195px !important;
+  }
+
+  .laser-meta-val {
+    font-size: 0.75rem !important;
+  }
+}
