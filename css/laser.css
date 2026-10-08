@@ -203,55 +203,328 @@
   line-height: 1.55;
 }
 
-/* --------------------------------------------------------------------------
-   TREATMENT EXPLANATION HIGHLIGHT BOX
-   -------------------------------------------------------------------------- */
-.explanation-box {
-  background: var(--bg-surface);
-  border: 1px solid var(--border-card);
-  border-radius: var(--radius-xl);
-  padding: clamp(2rem, 5vw, 3.5rem);
-  box-shadow: var(--shadow-sm);
+/* ==========================================================================
+   ADVANCED TECHNOLOGY SECTION (SOPRANO TITANIUM SHOWCASE)
+   ========================================================================== */
+.tech-showcase-section {
+  padding: clamp(3.5rem, 6vw, 5.5rem) 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.tech-section-header {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto clamp(2.5rem, 4vw, 3.75rem);
+}
+
+.tech-showcase-grid {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 2rem;
+  grid-template-columns: 1fr 1.15fr;
+  gap: clamp(2rem, 4vw, 3.5rem);
   align-items: center;
 }
 
-@media (min-width: 960px) {
-  .explanation-box {
-    grid-template-columns: 1.2fr 0.8fr;
+/* Column 1: Machine Visual Card */
+.tech-visual-column {
+  width: 100%;
+}
+
+.tech-machine-card {
+  background: #FFFFFF;
+  border: 1px solid var(--border-card);
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 16px 40px rgba(24, 26, 27, 0.06);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.tech-machine-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 48px rgba(24, 26, 27, 0.1);
+  border-color: var(--accent);
+}
+
+.tech-image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 540px;
+  background: #F8F6F1;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tech-machine-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.tech-machine-card:hover .tech-machine-img {
+  transform: scale(1.025);
+}
+
+/* Floating Machine Badge */
+.tech-machine-floating-badge {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(184, 146, 88, 0.35);
+  border-radius: 12px;
+  padding: 0.65rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  max-width: calc(100% - 32px);
+  z-index: 2;
+}
+
+.tech-badge-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 8px rgba(184, 146, 88, 0.6);
+  flex-shrink: 0;
+}
+
+.tech-badge-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.tech-badge-title {
+  font-family: var(--font-serif);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--text-primary);
+  line-height: 1.15;
+}
+
+.tech-badge-desc {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  color: var(--text-secondary);
+  line-height: 1.2;
+}
+
+/* Local Trust Note on Card Footer */
+.tech-machine-footer-note {
+  padding: 1rem 1.4rem;
+  background: #FCFAF7;
+  border-top: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-size: 0.86rem;
+  color: var(--text-secondary);
+  line-height: 1.45;
+}
+
+.tech-machine-footer-note svg {
+  color: var(--accent);
+  flex-shrink: 0;
+}
+
+/* Column 2: Content & Trust Points */
+.tech-content-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.tech-identity-box {
+  margin-bottom: 2rem;
+}
+
+.tech-device-title-wrap {
+  margin-bottom: 1.25rem;
+}
+
+.tech-device-eyebrow {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.35rem;
+}
+
+.tech-device-name {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 3.2vw, 2.5rem);
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.15;
+  margin: 0 0 0.35rem;
+}
+
+.tech-device-tagline {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+/* Philosophy Callout */
+.tech-philosophy-card {
+  background: #FCFAF7;
+  border-left: 3px solid var(--accent);
+  border-top: 1px solid var(--border-subtle);
+  border-right: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+  border-radius: 0 12px 12px 0;
+  padding: 1rem 1.35rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+}
+
+.tech-philosophy-lead {
+  font-family: var(--font-serif);
+  font-size: 1.08rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0 0 0.25rem;
+  line-height: 1.35;
+}
+
+.tech-philosophy-sub {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin: 0;
+  line-height: 1.45;
+}
+
+/* 4 Trust Points Grid */
+.tech-trust-points-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+}
+
+.tech-trust-card {
+  background: #FFFFFF;
+  border: 1px solid var(--border-card);
+  border-radius: 14px;
+  padding: 1.3rem 1.2rem;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.tech-trust-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-hover);
+  border-color: var(--accent);
+}
+
+.tech-trust-num {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--accent);
+  line-height: 1;
+  margin-bottom: 0.45rem;
+}
+
+.tech-trust-title {
+  font-family: var(--font-sans);
+  font-size: 0.96rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0 0 0.45rem;
+  line-height: 1.3;
+}
+
+.tech-trust-desc {
+  font-size: 0.84rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin: 0;
+}
+
+
+/* Responsive Media Queries for Technology Showcase */
+@media (max-width: 991px) {
+  .tech-showcase-grid {
+    grid-template-columns: 1fr;
+    gap: 2.75rem;
+    max-width: 640px;
+    margin: 0 auto;
+  }
+
+  .tech-image-wrapper {
+    height: 480px;
   }
 }
 
-.explanation-keypoints {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 0.85rem;
-  margin: 1.5rem 0;
+@media (max-width: 767px) {
+  .tech-showcase-section {
+    padding: 3rem 0;
+  }
+
+  .tech-section-header {
+    margin-bottom: 2rem;
+  }
+
+  .tech-image-wrapper {
+    height: 400px;
+  }
+
+  .tech-machine-card {
+    border-radius: 18px;
+  }
+
+  .tech-machine-floating-badge {
+    bottom: 12px;
+    left: 12px;
+    right: 12px;
+    padding: 0.55rem 0.85rem;
+  }
+
+  .tech-trust-points-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .tech-device-name {
+    font-size: 1.85rem;
+  }
 }
 
-.explanation-keypoint-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.65rem;
-  font-size: 0.95rem;
-  color: var(--text-secondary);
+@media (max-width: 480px) {
+  .tech-image-wrapper {
+    height: 350px;
+  }
+
+  .tech-device-name {
+    font-size: 1.65rem;
+  }
+
+  .tech-philosophy-lead {
+    font-size: 0.98rem;
+  }
+
+  .tech-trust-card {
+    padding: 1.15rem 1rem;
+  }
 }
 
-.explanation-keypoint-item svg {
-  color: var(--trust-green);
-  flex-shrink: 0;
-  margin-top: 3px;
-}
-
-.explanation-visual-side {
-  background: var(--bg-secondary);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-lg);
-  padding: 2rem;
-  text-align: center;
+@media (max-width: 360px) {
+  .tech-image-wrapper {
+    height: 300px;
+  }
 }
 
 /* --------------------------------------------------------------------------
@@ -276,37 +549,91 @@
 }
 
 .area-card {
-  background: var(--bg-surface);
+  background: #FFFFFF;
   border: 1px solid var(--border-card);
   border-radius: var(--radius-lg);
-  padding: 1.85rem 1.4rem 1.6rem;
+  padding: 0;
   text-align: center;
-  transition: all var(--transition-fast);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
   cursor: pointer;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  box-shadow: var(--shadow-sm);
+  align-items: stretch;
+  box-shadow: 0 4px 16px rgba(24, 26, 27, 0.04);
+  overflow: hidden;
+  position: relative;
+  height: 100%;
 }
 
 .area-card:hover {
   border-color: var(--accent);
   background: #FCFBF9;
   transform: translateY(-4px);
-  box-shadow: var(--shadow-hover);
+  box-shadow: 0 12px 28px rgba(24, 26, 27, 0.08);
+}
+
+.area-card--visual {
+  padding: 0;
+}
+
+.area-card--no-img {
+  padding: 0;
+  background: #FFFFFF;
+}
+
+.area-card-media {
+  width: 100%;
+  height: 225px;
+  background: #F7F5F0;
+  border-bottom: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.area-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  display: block;
+  transition: transform 0.35s ease;
+}
+
+.area-card:hover .area-card-img {
+  transform: scale(1.025);
+}
+
+.area-card-body {
+  padding: 1.4rem 1.3rem 1.55rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  flex-grow: 1;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.area-card--no-img .area-card-body {
+  padding: 2.2rem 1.3rem 1.6rem;
+  justify-content: flex-start;
 }
 
 .area-icon-circle {
-  width: 46px;
-  height: 46px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   background: var(--accent-light);
   color: var(--accent);
-  margin: 0 auto 0.85rem;
+  margin: 0 auto 1rem;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  border: 1px solid rgba(184, 146, 88, 0.2);
 }
 
 .area-name {
@@ -315,6 +642,7 @@
   font-weight: 600;
   color: var(--text-primary);
   margin-bottom: 0.35rem;
+  line-height: 1.25;
 }
 
 .area-hint {
@@ -1504,13 +1832,25 @@
   /* Treatment Areas */
   .areas-grid {
     grid-template-columns: 1fr !important;
-    gap: 1.15rem !important;
+    gap: 1.35rem !important;
   }
 
   .area-card {
-    padding: 1.35rem 1.15rem !important;
+    padding: 0 !important;
     box-sizing: border-box !important;
     max-width: 100% !important;
+  }
+
+  .area-card-media {
+    height: 215px !important;
+  }
+
+  .area-card-body {
+    padding: 1.25rem 1.15rem 1.4rem !important;
+  }
+
+  .area-card--no-img .area-card-body {
+    padding: 1.85rem 1.15rem 1.4rem !important;
   }
 
   /* Why Dr. Panghal */
@@ -1846,5 +2186,1172 @@
 
   .laser-meta-val {
     font-size: 0.75rem !important;
+  }
+}
+
+/* ==========================================================================
+   DIWALI SPECIAL OFFERS SECTION (FESTIVE LUXURY REDESIGN)
+   ========================================================================== */
+.diwali-offers-wrapper {
+  margin-top: 4.5rem;
+  margin-bottom: 3.5rem;
+  padding: clamp(3rem, 5vw, 4.5rem) clamp(1.5rem, 3.5vw, 3rem) clamp(3.5rem, 5vw, 4.75rem);
+  background: #FFFDF9;
+  border: 1.5px solid rgba(197, 160, 89, 0.45);
+  border-radius: 28px;
+  position: relative;
+  box-shadow: 0 18px 48px rgba(184, 146, 88, 0.12), 0 4px 16px rgba(24, 26, 27, 0.03);
+  overflow: visible;
+}
+
+/* Warm subtle festive golden atmospheric glow */
+.diwali-offers-wrapper::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 320px;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #C59A4E, #FFD54F, #C59A4E, transparent);
+  border-radius: var(--radius-full);
+  z-index: 4;
+}
+
+/* --------------------------------------------------------------------------
+   TOP-RIGHT LUXURY FOLDED SATIN GOLD RIBBON BADGE
+   -------------------------------------------------------------------------- */
+.diwali-corner-ribbon-wrap {
+  position: absolute;
+  top: -1px;
+  right: -1px;
+  width: 150px;
+  height: 150px;
+  overflow: hidden;
+  border-top-right-radius: 28px;
+  pointer-events: none;
+  z-index: 12;
+}
+
+.diwali-corner-ribbon {
+  position: absolute;
+  top: 26px;
+  right: -44px;
+  width: 195px;
+  transform: rotate(45deg);
+  background: linear-gradient(135deg, #8B5A10 0%, #B8852B 20%, #E6B564 50%, #B8852B 80%, #784B0E 100%);
+  color: #FFFFFF;
+  text-align: center;
+  padding: 0.55rem 0.25rem 0.45rem;
+  box-shadow: 0 6px 16px rgba(120, 75, 14, 0.35);
+  border-top: 1px solid rgba(255, 245, 215, 0.65);
+  border-bottom: 1px solid rgba(110, 68, 10, 0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.15rem;
+}
+
+.diwali-ribbon-diya {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  filter: drop-shadow(0 0 5px rgba(255, 235, 140, 0.9));
+}
+
+.diwali-ribbon-title {
+  font-family: var(--font-serif);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  line-height: 1.15;
+  color: #FFFFFF;
+  text-shadow: 0 1px 2px rgba(60, 35, 6, 0.6);
+}
+
+.diwali-ribbon-flourish {
+  font-size: 0.52rem;
+  letter-spacing: 0.12em;
+  color: rgba(255, 245, 220, 0.9);
+  line-height: 1;
+}
+
+/* --------------------------------------------------------------------------
+   WARM HANGING FAIRY LIGHTS ACROSS UPPER EDGE
+   -------------------------------------------------------------------------- */
+.diwali-fairy-lights {
+  position: absolute;
+  top: 0;
+  left: 35px;
+  right: 145px;
+  height: 55px;
+  pointer-events: none;
+  overflow: visible;
+  z-index: 5;
+}
+
+.diwali-fairy-lights svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.diwali-bulb {
+  filter: drop-shadow(0 0 4px rgba(255, 215, 80, 0.7));
+}
+
+.diwali-bulb--glow {
+  filter: drop-shadow(0 0 6px rgba(255, 204, 60, 0.95)) drop-shadow(0 0 12px rgba(255, 170, 0, 0.6));
+  animation: diwaliBulbPulse 3s ease-in-out infinite alternate;
+}
+
+@keyframes diwaliBulbPulse {
+  0% {
+    filter: drop-shadow(0 0 4px rgba(255, 204, 60, 0.75));
+    opacity: 0.88;
+  }
+  100% {
+    filter: drop-shadow(0 0 8px rgba(255, 215, 80, 1)) drop-shadow(0 0 16px rgba(255, 170, 0, 0.8));
+    opacity: 1;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   HANGING GOLD ORNAMENTS (FLANKING SIDES)
+   -------------------------------------------------------------------------- */
+.diwali-hanging-decor {
+  position: absolute;
+  top: 0;
+  pointer-events: none;
+  z-index: 6;
+  opacity: 0.88;
+}
+
+.diwali-hanging--left {
+  left: -20px;
+}
+
+.diwali-hanging--right {
+  right: -20px;
+}
+
+/* --------------------------------------------------------------------------
+   BOTTOM CORNER DIYAS ON FLOWER PETALS
+   -------------------------------------------------------------------------- */
+.diwali-corner-diya {
+  position: absolute;
+  bottom: -22px;
+  pointer-events: none;
+  z-index: 8;
+}
+
+.diwali-diya--left {
+  left: -26px;
+}
+
+.diwali-diya--right {
+  right: -26px;
+}
+
+.diwali-diya-glow {
+  position: absolute;
+  top: 14px;
+  left: 28px;
+  width: 60px;
+  height: 50px;
+  background: radial-gradient(circle, rgba(255, 198, 88, 0.6) 0%, rgba(255, 150, 0, 0.28) 45%, transparent 75%);
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(5px);
+  animation: diwaliFlameFlicker 2.5s ease-in-out infinite alternate;
+}
+
+@keyframes diwaliFlameFlicker {
+  0% { transform: scale(0.96); opacity: 0.8; }
+  50% { transform: scale(1.06) translate(1px, -1px); opacity: 1; }
+  100% { transform: scale(0.98) translate(-1px, 0.5px); opacity: 0.85; }
+}
+
+/* --------------------------------------------------------------------------
+   HEADER BLOCK
+   -------------------------------------------------------------------------- */
+.diwali-header-block {
+  text-align: center;
+  max-width: 650px;
+  margin: 0 auto 3rem;
+  position: relative;
+  z-index: 7;
+}
+
+.diwali-festive-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.38rem 1.15rem;
+  border-radius: 9999px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #8C6225;
+  background: #FAF3E6;
+  border: 1px solid rgba(197, 160, 89, 0.45);
+  margin-bottom: 0.85rem;
+  box-shadow: 0 2px 6px rgba(197, 160, 89, 0.12);
+}
+
+.diwali-star-icon {
+  color: #C59A4E;
+  font-size: 0.85rem;
+  line-height: 1;
+}
+
+.diwali-main-heading {
+  font-family: var(--font-serif);
+  font-size: clamp(2.15rem, 3.4vw, 2.85rem);
+  font-weight: 600;
+  color: #161A18;
+  line-height: 1.18;
+  margin-bottom: 0.65rem;
+}
+
+.diwali-sub-text {
+  font-size: 1.025rem;
+  color: #555B58;
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   3-CARD GRID & CARDS
+   -------------------------------------------------------------------------- */
+.diwali-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.75rem;
+  align-items: stretch;
+  position: relative;
+  z-index: 7;
+}
+
+.diwali-card {
+  background: #FFFFFF;
+  border: 1px solid #ECE7DF;
+  border-radius: 18px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.diwali-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(24, 26, 27, 0.08);
+}
+
+/* CARD 2: BRIDAL PLAN — FEATURED LUXURY ACCENT */
+.diwali-card--bridal {
+  border: 2px solid #C59A4E;
+  box-shadow: 0 12px 38px rgba(184, 146, 88, 0.22);
+  position: relative;
+}
+
+.diwali-card--bridal:hover {
+  box-shadow: 0 16px 45px rgba(184, 146, 88, 0.32);
+}
+
+/* CARD HEADER BANNERS */
+.diwali-card-banner {
+  padding: 1.15rem 1.25rem;
+  text-align: center;
+  color: #FFFFFF;
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+}
+
+.diwali-card-banner--starter {
+  background: #164234;
+}
+
+.diwali-card-banner--bridal {
+  background: linear-gradient(135deg, #C59A4E 0%, #B58434 100%);
+}
+
+.diwali-card-banner--mens {
+  background: #164234;
+}
+
+.diwali-plan-title {
+  display: block;
+}
+
+/* CARD BODY */
+.diwali-card-body {
+  padding: 1.75rem 1.6rem 1.6rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+/* Price Block */
+.diwali-price-block {
+  text-align: center;
+  padding-bottom: 1.35rem;
+  border-bottom: 1px solid #ECE8E1;
+  margin-bottom: 1.35rem;
+}
+
+.diwali-price-val {
+  font-family: var(--font-serif);
+  font-size: 2.75rem;
+  font-weight: 700;
+  color: #161A18;
+  line-height: 1;
+  margin-bottom: 0.45rem;
+  letter-spacing: -0.02em;
+}
+
+.diwali-price-sub {
+  font-size: 0.85rem;
+  color: #737876;
+  font-weight: 500;
+}
+
+/* Info Groups */
+.diwali-info-group {
+  margin-bottom: 1.25rem;
+}
+
+.diwali-group-label {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #2C3330;
+  margin-bottom: 0.35rem;
+}
+
+.diwali-group-content {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #2C3330;
+  line-height: 1.45;
+}
+
+.diwali-includes-text {
+  font-weight: 600;
+  min-height: 2.75rem;
+}
+
+.diwali-includes-text em {
+  font-style: italic;
+  font-weight: 400;
+  color: #7A807C;
+}
+
+/* Savings Box */
+.diwali-savings-box {
+  border-radius: 8px;
+  padding: 0.85rem 1rem;
+  margin-bottom: 1.35rem;
+  text-align: center;
+}
+
+.diwali-savings--starter {
+  background: #FBF9F5;
+  border: 1px solid #EAE5DB;
+}
+
+.diwali-savings--starter .diwali-savings-amount {
+  color: #164234;
+}
+
+.diwali-savings--bridal {
+  background: #FDF9F2;
+  border: 1px solid #ECD9BD;
+}
+
+.diwali-savings--bridal .diwali-savings-amount {
+  color: #A67527;
+}
+
+.diwali-savings--mens {
+  background: #FBF9F5;
+  border: 1px solid #EAE5DB;
+}
+
+.diwali-savings--mens .diwali-savings-amount {
+  color: #A83C32;
+}
+
+.diwali-page-prices {
+  font-size: 0.8rem;
+  color: #7A807C;
+  margin-bottom: 0.25rem;
+}
+
+.diwali-savings-amount {
+  font-size: 0.96rem;
+  font-weight: 700;
+}
+
+/* Payment Breakdown */
+.diwali-payment-group {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.5rem;
+}
+
+.diwali-payment-breakdown {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 0.85rem 0;
+  font-size: 0.875rem;
+  color: #4A504D;
+  line-height: 1.65;
+}
+
+.diwali-payment-breakdown li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.diwali-payment-breakdown li.payment-subnote {
+  padding-left: 1.15rem;
+  font-size: 0.8rem;
+  color: #7A807C;
+  font-style: italic;
+  display: block;
+}
+
+.pay-bullet {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #C59A4E;
+  flex-shrink: 0;
+}
+
+.diwali-target-note {
+  font-size: 0.82rem;
+  color: #7A807C;
+  line-height: 1.4;
+  margin-top: auto;
+  padding-top: 0.85rem;
+  border-top: 1px dotted #ECE7DF;
+}
+
+/* Footer & CTA */
+.diwali-card-footer {
+  margin-top: auto;
+  padding-top: 0.75rem;
+}
+
+.diwali-cta-btn {
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding: 0.9rem 1.25rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  cursor: pointer;
+  letter-spacing: 0.01em;
+}
+
+.diwali-cta--starter {
+  background: #164234;
+  color: #FFFFFF;
+  border: none;
+}
+
+.diwali-cta--starter:hover {
+  background: #103328;
+  color: #FFFFFF;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(22, 66, 52, 0.28);
+}
+
+.diwali-cta--bridal {
+  background: linear-gradient(135deg, #C59A4E 0%, #B58434 100%);
+  color: #FFFFFF;
+  border: none;
+  box-shadow: 0 4px 16px rgba(184, 146, 88, 0.35);
+}
+
+.diwali-cta--bridal:hover {
+  background: linear-gradient(135deg, #B58434 0%, #9F7128 100%);
+  color: #FFFFFF;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 22px rgba(184, 146, 88, 0.45);
+}
+
+.diwali-cta--mens {
+  background: #164234;
+  color: #FFFFFF;
+  border: none;
+}
+
+.diwali-cta--mens:hover {
+  background: #103328;
+  color: #FFFFFF;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(22, 66, 52, 0.28);
+}
+
+/* --------------------------------------------------------------------------
+   RESPONSIVE BREAKPOINTS
+   -------------------------------------------------------------------------- */
+@media (max-width: 991px) {
+  .diwali-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+    max-width: 440px;
+    margin: 0 auto;
+  }
+
+  .diwali-offers-wrapper {
+    padding: 2.75rem 1.5rem 3rem;
+    margin-top: 3.5rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .diwali-hanging-decor {
+    display: none;
+  }
+
+  .diwali-includes-text {
+    min-height: auto;
+  }
+
+  .diwali-corner-diya {
+    transform: scale(0.85);
+  }
+
+  .diwali-diya--left {
+    left: -10px;
+    bottom: -18px;
+  }
+
+  .diwali-diya--right {
+    right: -10px;
+    bottom: -18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .diwali-offers-wrapper {
+    padding: 2.25rem 1.15rem 2.75rem;
+    border-radius: 20px;
+    margin-top: 2.5rem;
+    overflow: hidden;
+  }
+
+  .diwali-header-block {
+    margin-bottom: 2.25rem;
+    padding-right: 1.25rem;
+  }
+
+  .diwali-main-heading {
+    font-size: 1.85rem;
+  }
+
+  .diwali-sub-text {
+    font-size: 0.92rem;
+  }
+
+  .diwali-corner-ribbon-wrap {
+    width: 115px;
+    height: 115px;
+    border-top-right-radius: 18px;
+  }
+
+  .diwali-corner-ribbon {
+    top: 18px;
+    right: -36px;
+    width: 150px;
+    padding: 0.35rem 0.2rem 0.3rem;
+  }
+
+  .diwali-ribbon-title {
+    font-size: 0.62rem;
+  }
+
+  .diwali-ribbon-diya svg {
+    width: 15px;
+    height: 15px;
+  }
+
+  .diwali-corner-diya {
+    display: none;
+  }
+
+  .diwali-fairy-lights {
+    left: 10px;
+    right: 90px;
+    height: 42px;
+  }
+
+  .diwali-card-body {
+    padding: 1.4rem 1.15rem;
+  }
+
+  .diwali-price-val {
+    font-size: 2.35rem;
+  }
+
+  .diwali-cta-btn {
+    padding: 0.85rem 1rem;
+    font-size: 0.92rem;
+  }
+}
+
+/* ==========================================================================
+   SECTION 5: WHY DR. PANGHAL — EDITORIAL REDESIGN
+   ========================================================================== */
+.why-panghal-section {
+  padding: clamp(3.5rem, 6vw, 5.5rem) 0;
+}
+
+.why-header {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 3rem;
+}
+
+.why-editorial-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  align-items: stretch;
+}
+
+.why-editorial-card {
+  background: #FFFFFF;
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 18px rgba(24, 26, 27, 0.04);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  position: relative;
+}
+
+.why-editorial-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(24, 26, 27, 0.07);
+  border-color: rgba(184, 146, 88, 0.45);
+}
+
+/* Card 01: Visual Anchor */
+.why-card--tech {
+  border-top: 3px solid var(--accent);
+}
+
+.why-card-image-wrap {
+  width: 100%;
+  height: 180px;
+  position: relative;
+  overflow: hidden;
+  background: #141617;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.why-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 25% 42%;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.why-card--tech:hover .why-card-img {
+  transform: scale(1.03);
+}
+
+.why-image-badge {
+  position: absolute;
+  bottom: 0.85rem;
+  left: 0.85rem;
+  background: rgba(20, 22, 23, 0.85);
+  color: #FFFFFF;
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 0.35rem 0.8rem;
+  border-radius: var(--radius-full);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(214, 179, 126, 0.3);
+  letter-spacing: 0.03em;
+}
+
+/* Card 02: Doctor-Led */
+.why-card--doctor {
+  border-top: 3px solid #236E50;
+}
+
+/* Card 03: Personalised */
+.why-card--personal {
+  border-top: 3px solid #B89258;
+}
+
+/* Card 04: Transparent */
+.why-card--transparent {
+  border-top: 3px solid #141617;
+}
+
+/* Card Inner Content */
+.why-card-inner {
+  padding: 2.2rem 2rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.why-meta-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.1rem;
+}
+
+.why-card-num {
+  font-family: var(--font-serif);
+  font-size: 1.85rem;
+  font-weight: 600;
+  color: var(--accent);
+  line-height: 1;
+}
+
+.why-tag {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.28rem 0.75rem;
+  border-radius: var(--radius-full);
+}
+
+.why-tag--tech {
+  background: #F4EFEB;
+  color: #847C73;
+}
+
+.why-tag--doctor {
+  background: #EAF4EE;
+  color: #236E50;
+}
+
+.why-tag--personal {
+  background: #F7EFE4;
+  color: #9E7A43;
+}
+
+.why-tag--transparent {
+  background: #EEF0F2;
+  color: #38424B;
+}
+
+/* Card Headings */
+.why-card-heading {
+  font-family: var(--font-serif);
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.25;
+  margin-bottom: 0.85rem;
+}
+
+.highlight-doctor {
+  color: #236E50;
+  text-decoration: underline;
+  text-decoration-color: rgba(35, 110, 80, 0.4);
+  text-underline-offset: 4px;
+}
+
+.highlight-personal {
+  color: #9E7A43;
+  text-decoration: underline;
+  text-decoration-color: rgba(184, 146, 88, 0.4);
+  text-underline-offset: 4px;
+}
+
+.highlight-transparent {
+  color: #181A1B;
+  text-decoration: underline;
+  text-decoration-color: rgba(24, 26, 27, 0.4);
+  text-underline-offset: 4px;
+}
+
+.why-card-desc {
+  font-size: 0.96rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+}
+
+/* Callout strips & footer notes */
+.why-diff-strip {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  background: #FAF8F5;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 0.7rem 0.95rem;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+  margin-top: auto;
+}
+
+.diff-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #EAF4EE;
+  color: #236E50;
+  font-size: 0.75rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.why-card-foot-note {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #FAF8F5;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 0.7rem 0.95rem;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+  margin-top: auto;
+}
+
+.foot-bullet {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  flex-shrink: 0;
+}
+
+/* Bottom note & CTA */
+.why-bottom-block {
+  margin-top: 3.5rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.why-local-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid var(--border-card);
+  padding: 0.5rem 1.25rem;
+  border-radius: var(--radius-full);
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  box-shadow: 0 2px 8px rgba(24, 26, 27, 0.04);
+  margin-bottom: 1.5rem;
+}
+
+.why-local-badge svg {
+  color: var(--accent);
+  flex-shrink: 0;
+}
+
+.why-bottom-block .why-cta-wrapper {
+  margin-top: 0;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .why-editorial-grid {
+    grid-template-columns: 1fr;
+    gap: 1.35rem;
+  }
+
+  .why-card-inner {
+    padding: 1.65rem 1.35rem;
+  }
+
+  .why-card-image-wrap {
+    height: 165px;
+  }
+
+  .why-card-heading {
+    font-size: 1.45rem;
+  }
+
+  .why-bottom-block {
+    margin-top: 2.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .why-card-inner {
+    padding: 1.35rem 1.15rem;
+  }
+
+  .why-card-image-wrap {
+    height: 150px;
+  }
+
+  .why-card-heading {
+    font-size: 1.35rem;
+  }
+
+  .why-card-desc {
+    font-size: 0.9rem;
+    line-height: 1.55;
+    margin-bottom: 1.15rem;
+  }
+
+  .why-local-badge {
+    font-size: 0.8rem;
+    padding: 0.4rem 0.95rem;
+  }
+}
+
+/* ==========================================================================
+   SECTION 5B: VISUAL PROOF & TREATMENT MEDIA (VIDEOS & AREA VISUALS)
+   ========================================================================== */
+.treatment-media-section {
+  padding: clamp(3.5rem, 6vw, 5.5rem) 0;
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.treatment-media-header {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 3rem;
+}
+
+/* PART 1: VIDEOS */
+.treatment-videos-wrap {
+  margin-bottom: clamp(3.5rem, 5.5vw, 5rem);
+}
+
+.treatment-videos-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  align-items: stretch;
+}
+
+.treatment-video-card {
+  background: #FFFFFF;
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 18px rgba(24, 26, 27, 0.04);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.treatment-video-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(24, 26, 27, 0.08);
+}
+
+.video-container {
+  position: relative;
+  width: 100%;
+  height: 440px;
+  background: #0E1012;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.clinic-treatment-video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: #0E1012;
+  display: block;
+}
+
+.video-play-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(14, 16, 18, 0.42);
+  backdrop-filter: blur(2px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.9rem;
+  cursor: pointer;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  z-index: 2;
+}
+
+.video-play-overlay.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.video-play-circle {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.94);
+  color: #181A1B;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.28);
+  border: 2px solid var(--accent);
+  transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease;
+}
+
+.video-play-circle svg {
+  margin-left: 3px;
+}
+
+.video-play-overlay:hover .video-play-circle {
+  transform: scale(1.08);
+  background: #FFFFFF;
+  color: var(--accent);
+}
+
+.video-play-text {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  background: rgba(20, 22, 23, 0.85);
+  padding: 0.35rem 0.95rem;
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(4px);
+}
+
+.treatment-video-meta {
+  padding: 1.75rem 1.6rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border-top: 1px solid var(--border-subtle);
+  background: #FFFFFF;
+}
+
+.video-meta-tag {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.45rem;
+}
+
+.video-card-title {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.45rem;
+  line-height: 1.25;
+}
+
+.video-card-desc {
+  font-size: 0.93rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* SECTION BOTTOM CTA */
+.treatment-media-cta-card {
+  margin-top: 3.5rem;
+  text-align: center;
+  background: #FCFAF7;
+  border: 1px solid rgba(184, 146, 88, 0.25);
+  border-radius: var(--radius-xl);
+  padding: 3rem 2rem;
+  box-shadow: 0 10px 30px rgba(24, 26, 27, 0.04);
+}
+
+.treatment-media-cta-heading {
+  font-family: var(--font-serif);
+  font-size: clamp(1.6rem, 2.6vw, 2.1rem);
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.75rem;
+}
+
+.treatment-media-cta-subtext {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  max-width: 620px;
+  margin: 0 auto 1.75rem;
+  line-height: 1.6;
+}
+
+/* Responsive */
+@media (max-width: 991px) {
+  .treatment-videos-grid {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+    max-width: 520px;
+    margin: 0 auto;
+  }
+
+  .video-container {
+    height: 380px;
+  }
+}
+
+@media (max-width: 480px) {
+  .treatment-media-section {
+    padding: 2.75rem 0;
+  }
+
+  .video-container {
+    height: 320px;
+  }
+
+  .video-card-title {
+    font-size: 1.3rem;
+  }
+
+  .treatment-video-meta {
+    padding: 1.25rem 1.15rem;
+  }
+
+  .treatment-media-cta-card {
+    padding: 2rem 1.15rem;
+    border-radius: var(--radius-lg);
   }
 }
