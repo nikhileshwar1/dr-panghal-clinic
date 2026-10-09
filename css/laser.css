@@ -1293,7 +1293,7 @@
   align-items: center;
   justify-content: center;
   background-color: #E8ECEE;
-  background-image: url('../Assets/bhiwani-clinic-map.png');
+  background-image: url('/Assets/bhiwani-clinic-map.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

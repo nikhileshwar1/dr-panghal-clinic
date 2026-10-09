@@ -17,50 +17,64 @@ $mimeTypes = @{
     ".svg"   = "image/svg+xml"
     ".ico"   = "image/x-icon"
     ".woff2" = "font/woff2"
+    ".mp4"   = "video/mp4"
 }
 
 try {
     while ($listener.IsListening) {
         $context = $listener.GetContext()
-        $request = $context.Request
-        $response = $context.Response
+        try {
+            $request = $context.Request
+            $response = $context.Response
 
-        $urlPath = $request.Url.LocalPath
-        if ($urlPath -eq "/" -or [string]::IsNullOrEmpty($urlPath)) {
-            $urlPath = "/index.html"
-        }
-
-        $localFilePath = Join-Path $basePath $urlPath.TrimStart('/')
-
-        # If path is a directory, look for index.html inside it
-        if (Test-Path $localFilePath -PathType Container) {
-            $localFilePath = Join-Path $localFilePath "index.html"
-        } elseif (-not (Test-Path $localFilePath -PathType Leaf)) {
-            # Try appending /index.html if requesting without trailing slash
-            $asDir = Join-Path $basePath ($urlPath.TrimStart('/') + "\index.html")
-            if (Test-Path $asDir -PathType Leaf) {
-                $localFilePath = $asDir
+            $urlPath = [System.Uri]::UnescapeDataString($request.Url.LocalPath)
+            if ($urlPath -eq "/" -or [string]::IsNullOrEmpty($urlPath)) {
+                $urlPath = "/index.html"
             }
-        }
 
-        if (Test-Path $localFilePath -PathType Leaf) {
-            $ext = [System.IO.Path]::GetExtension($localFilePath).ToLower()
-            $mime = if ($mimeTypes.ContainsKey($ext)) { $mimeTypes[$ext] } else { "application/octet-stream" }
-            $response.ContentType = $mime
-            $response.AddHeader("Cache-Control", "no-cache, no-store, must-revalidate")
-            $response.AddHeader("Pragma", "no-cache")
-            $response.AddHeader("Expires", "0")
-            
-            $bytes = [System.IO.File]::ReadAllBytes($localFilePath)
-            $response.ContentLength64 = $bytes.Length
-            $response.OutputStream.Write($bytes, 0, $bytes.Length)
-        } else {
-            $response.StatusCode = 404
-            $errBytes = [System.Text.Encoding]::UTF8.GetBytes("404 Not Found")
-            $response.OutputStream.Write($errBytes, 0, $errBytes.Length)
-        }
+            $localFilePath = Join-Path $basePath $urlPath.TrimStart('/')
 
-        $response.OutputStream.Close()
+            # If path is a directory, look for index.html inside it
+            if (Test-Path $localFilePath -PathType Container) {
+                $localFilePath = Join-Path $localFilePath "index.html"
+            } elseif (-not (Test-Path $localFilePath -PathType Leaf)) {
+                # Try appending /index.html if requesting without trailing slash
+                $asDir = Join-Path $basePath ($urlPath.TrimStart('/') + "\index.html")
+                if (Test-Path $asDir -PathType Leaf) {
+                    $localFilePath = $asDir
+                }
+            }
+
+            if (Test-Path $localFilePath -PathType Leaf) {
+                $ext = [System.IO.Path]::GetExtension($localFilePath).ToLower()
+                $mime = if ($mimeTypes.ContainsKey($ext)) { $mimeTypes[$ext] } else { "application/octet-stream" }
+                $response.ContentType = $mime
+                $response.AddHeader("Cache-Control", "no-cache, no-store, must-revalidate")
+                $response.AddHeader("Pragma", "no-cache")
+                $response.AddHeader("Expires", "0")
+                $response.AddHeader("Accept-Ranges", "bytes")
+                
+                $fileInfo = New-Object System.IO.FileInfo($localFilePath)
+                $response.ContentLength64 = $fileInfo.Length
+
+                if ($request.HttpMethod -ne "HEAD") {
+                    $stream = [System.IO.File]::OpenRead($localFilePath)
+                    try {
+                        $stream.CopyTo($response.OutputStream)
+                    } finally {
+                        $stream.Dispose()
+                    }
+                }
+            } else {
+                $response.StatusCode = 404
+                $errBytes = [System.Text.Encoding]::UTF8.GetBytes("404 Not Found")
+                $response.OutputStream.Write($errBytes, 0, $errBytes.Length)
+            }
+        } catch {
+            Write-Warning "Error serving request: $_"
+        } finally {
+            try { $context.Response.OutputStream.Close() } catch {}
+        }
     }
 } finally {
     $listener.Stop()
