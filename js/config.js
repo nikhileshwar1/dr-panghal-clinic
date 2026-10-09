@@ -50,7 +50,7 @@ const CLINIC_CONFIG = {
 
   // Tracking & Analytics Configuration (Replace with actual IDs when ready)
   tracking: {
-    metaPixelId: "YOUR_META_PIXEL_ID", // e.g. "123456789012345"
+    metaPixelId: "1550414086858160",
     googleAnalyticsId: "G-XXXXXXXXXX",   // e.g. "G-A1B2C3D4E5"
     enableConsoleDebug: true            // Prints tracking events in browser console
   },

@@ -63,20 +63,23 @@
   }
   </script>
 
-  <!-- Meta Pixel Code Placeholder -->
+  <!-- Meta Pixel Code -->
   <script>
-    !function (f, b, e, v, n, t, s) {
-      if (f.fbq) return; n = f.fbq = function () {
-        n.callMethod ?
-          n.callMethod.apply(n, arguments) : n.queue.push(arguments)
-      };
-      if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
-      n.queue = []; t = b.createElement(e); t.async = !0;
-      t.src = v; s = b.getElementsByTagName(e)[0];
-      s.parentNode.insertBefore(t, s)
-    }(window, document, 'script',
-      'https://connect.facebook.net/en_US/fbevents.js');
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1550414086858160');
+    fbq('track', 'PageView');
   </script>
+  <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1550414086858160&ev=PageView&noscript=1"
+  /></noscript>
+  <!-- End Meta Pixel Code -->
 </head>
 
 <body>
@@ -2342,8 +2345,7 @@
         }
       };
 
-      // PageView
-      trackEvent("PageView", { page_name: "Laser Hair Removal Landing Page" });
+      // PageView is initialized and tracked once on page load via official Meta Pixel code in <head>
 
       // ViewContent on Scroll to Treatment Areas
       const areasEl = document.getElementById("treatment-areas");
@@ -2532,6 +2534,7 @@
 
         form.addEventListener("submit", async (e) => {
           e.preventDefault();
+          if (form.dataset.submitted === "true") return;
           const nameInput = form.querySelector('input[name="patient_name"]');
           const phoneInput = form.querySelector('input[name="patient_phone"]');
           const areaInput = form.querySelector('select[name="treatment_interest"]');
@@ -2624,6 +2627,7 @@
           }
 
           if (success) {
+            form.dataset.submitted = "true";
             // Local lead backup
             try {
               const list = JSON.parse(localStorage.getItem("dr_panghal_leads") || "[]");
